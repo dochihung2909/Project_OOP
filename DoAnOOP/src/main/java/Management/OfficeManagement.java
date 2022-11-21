@@ -32,9 +32,13 @@ public class OfficeManagement implements IConfig {
         arrOffice.forEach(a1 -> a1.showInfor());
     }
 
-    public List<Office> search(String name) {
-        System.out.print("Nhập tên phòng ban: ");
+    public List<Office> search() {
+        System.out.print("Enter Office Name: ");
         String temp = myInp.nextLine();
         return arrOffice.stream().filter(a1 -> a1.getName().contains(temp)).toList();
+    }
+
+    public List<Office> search(String name) {
+        return arrOffice.stream().filter(a1 -> a1.getName().contains(name)).toList();
     }
 }

@@ -3,6 +3,8 @@ package Management;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import Class.*;
 
 public class ProjectManagement implements IConfig {
@@ -81,5 +83,13 @@ public class ProjectManagement implements IConfig {
         System.out.print("Nhâp ID của dự án");
         String temp = myInp.nextLine();
         arrProject.stream().filter(a1 -> a1.getId().contains(temp)).findFirst().get().setLeader(e);
+    }
+
+    public List<Project> search(Project p) {
+        return arrProject.stream().filter(a1 -> a1.equals(p)).collect(Collectors.toList());
+    }
+
+    public List<Project> search(String name) {
+        return arrProject.stream().filter(a1 -> a1.getName().contains(name)).collect(Collectors.toList());
     }
 }

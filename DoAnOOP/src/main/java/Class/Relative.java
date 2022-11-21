@@ -1,11 +1,17 @@
 package Class;
 
 import java.text.ParseException;
+import java.util.Date;
 
 public class Relative extends Person implements IConfig{
     private String relationship;
 
     public Relative(String name, String gender, String dob, String relationship) throws ParseException {
+        super(name, gender, dob);
+        this.relationship = relationship;
+    }
+
+    public Relative(String name, String gender, Date dob, String relationship) {
         super(name, gender, dob);
         this.relationship = relationship;
     }
@@ -19,18 +25,18 @@ public class Relative extends Person implements IConfig{
     }
 
     public void updateInfor() throws ParseException {
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter Name: ");
         super.setName(myInp.nextLine());
-        System.out.print("Nhập giới tính: ");
+        System.out.print("Enter Gender: ");
         super.setGender(myInp.nextLine());
-        System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
+        System.out.print("Enter day of birth (dd/mm/yyyy): ");
         super.setDob(f.parse(myInp.nextLine()));
-        System.out.print("Nhập quan hệ: ");
+        System.out.print("Enter relationship: ");
         this.relationship = myInp.nextLine();
     }
 
     public void showInfor() {
         super.showInfo();
-        System.out.println("Quan hệ: " + this.relationship);
+        System.out.println("Relationship: " + this.relationship);
     }
 }

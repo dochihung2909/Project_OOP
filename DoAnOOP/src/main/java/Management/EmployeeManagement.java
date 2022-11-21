@@ -3,7 +3,9 @@ import Class.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmployeeManagement {
     private List<Employee> arrE = new ArrayList<Employee>();
@@ -37,18 +39,27 @@ public class EmployeeManagement {
     }
 
     public List<Employee> search(String name) {
-        return arrE.stream().filter(a1 -> a1.getName().contains(name)).toList();
+        return arrE.stream().filter(a1 -> a1.getName().contains(name)).collect(Collectors.toList());
     }
 
     public List<Employee> search(Date dob) {
-        return arrE.stream().filter(a1 -> a1.getDob().equals(dob)).toList();
+        return arrE.stream().filter(a1 -> a1.getDob().equals(dob)).collect(Collectors.toList());
+    }
+
+    public List<Employee> search(Office office) {
+        return arrE.stream().filter(a1 -> a1.hasOffice(office)).collect(Collectors.toList());
     }
 
     public List<Employee> search(int age) {
-        return arrE.stream().filter(a1 -> a1.getAge() == age).toList();
+        return arrE.stream().filter(a1 -> a1.getAge() == age).collect(Collectors.toList());
     }
 
     public List<Employee> search(int ageFrom,int ageTo) {
-        return arrE.stream().filter(a1 -> (a1.getAge() >= ageFrom && a1.getAge() <= ageTo)).toList();
+        if (ageFrom <= ageTo) {
+            return arrE.stream().filter(a1 -> (a1.getAge() >= ageFrom && a1.getAge() <= ageTo)).collect(Collectors.toList());
+        } else {
+            throw new InputMismatchException("INVALID AGE!!");
+        }
+
     }
 }

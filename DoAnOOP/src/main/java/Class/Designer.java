@@ -6,8 +6,18 @@ import java.util.List;
 public class Designer extends Employee {
     private double bonus;
 
-    public Designer(String name, String gender, String dob, String email, List<Office> office, double salary, double coefficient, double bonus) throws ParseException {
-        super(name, gender, dob, email, office, salary, coefficient);
+    {
+        countId++;
+        id = String.format("D-%010d",countId);
+    }
+
+    public Designer(String name, String gender, String dob, String email, double bonus) throws ParseException {
+        super(name, gender, dob, email);
+        this.bonus = bonus;
+    }
+
+    public Designer(String name, String gender, String dob, String email, List<Office> office, double bonus) throws ParseException {
+        super(name, gender, dob, email, office);
         this.bonus = bonus;
     }
 
@@ -20,7 +30,18 @@ public class Designer extends Employee {
     }
 
     @Override
-    public double calcSalary() {
-        return super.calcSalary() + bonus;
+    public double getCoefficient()  {
+        return  Role.DESIGNER.getCoefficient();
+    }
+    @Override
+    public double getSalary() {
+        return super.getSalary() + bonus;
+    }
+
+    @Override
+    public void updateInfor() throws ParseException {
+        super.updateInfor();
+        System.out.println("Enter Bonus: ");
+        this.bonus = myInp.nextDouble();
     }
 }
