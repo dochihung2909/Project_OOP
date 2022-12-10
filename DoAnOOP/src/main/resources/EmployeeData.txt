@@ -1,0 +1,10 @@
+P, Nguyễn Văn Hưởng, male, 02/12/2003, thanhhuong123@gmail.com, 10000000.0
+P, Trần Thanh Hiệp, male, 29/01/2003, hieptt.2003@gmail.com, 5000000.0
+D, Nguyễn Song Hậu, male, 27/07/2003, 2151050123hau@ou.edu.vn, 300000.0
+T, Trần Thị Na, female, 27/05/2003, 2151053045nhu@ou.edu.vn, 10
+M, Nguyễn Trọng Phúc, male, 02/02/2000, 2151040000phuc@ou.edu.vn
+T, Mai Trần Nhật Tuấn, male, 26/03/2003, 2151053062tuan@ou.edu.vn, 25
+D, Trần Thị Quýt, female, 10/07/2003, quytcute123@ou.edu.vn, 50000.0
+D, Vũ Trọng Phụng, male, 18/12/1998, xuandieuoi@gmail.com, 500000.0
+P, Lê Trí Cường, male, 10/08/2003, letricuong203@gmail.com, 2000000.0
+M, Đỗ Chí Hưng, male, 29/09/2003, hungdo2909@gmail.com

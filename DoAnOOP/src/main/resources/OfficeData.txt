@@ -1,0 +1,4 @@
+Programming, P-00002, T-00006, M-00010
+Designing, D-00003, D-00007, D-00008
+Testing, T-00004, M-00005, T-00006, P-00009
+General, M-00005, M-00010

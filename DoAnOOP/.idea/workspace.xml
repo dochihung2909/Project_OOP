@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79349ff3-5890-4d5f-a171-5dfbd74fe679" name="Changes" comment="" />
+    <list default="true" id="79349ff3-5890-4d5f-a171-5dfbd74fe679" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Designer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Designer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/IConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/IConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/InsurancePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/InsurancePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Office.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Office.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/ParticipateProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/ParticipateProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Programer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Programer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Relative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Relative.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Management/EmployeeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/EmployeeManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Management/OfficeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/OfficeManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Management/ProjectManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/ProjectManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exception/DateException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exception/EmailException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exception/NameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/extension/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extension/Validate.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +41,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -34,12 +57,31 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Code/University/Second Year/OOP/doanOOP/DoAnOOP",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="DoAnOOP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,6 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668220560273</updated>
       <workItem from="1668220561851" duration="830000" />
+      <workItem from="1670680435625" duration="2427000" />
     </task>
     <servers />
   </component>
@@ -65,5 +108,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/extension/ReadFile.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

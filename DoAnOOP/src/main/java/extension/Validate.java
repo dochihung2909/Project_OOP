@@ -12,22 +12,22 @@ public class Validate implements IConfig {
     }
 
 
-    public static void checkDate(Date birthDay) throws DateException {
+    public static void checkDate(Date birthDay) throws InvalidDateException {
         GregorianCalendar dob = new GregorianCalendar();
         dob.setTime(birthDay);
         if (dob.after(GreCalandar.getTime())) {
-            throw new DateException("\n INVALID DATE OF BIRTH!! \n");
+            throw new InvalidDateException("\n INVALID DATE OF BIRTH!! \n");
         }
     }
 
-    public static void checkEmail(String email) throws EmailException {
+    public static void checkEmail(String email) throws InvalidEmailException {
         if (!email.matches("^[\\w]+[\\w\\-_\\.]+@(\\w+\\.)+\\w+$")) {
-            throw new EmailException("\n INVALID EMAIL!! \n");
+            throw new InvalidEmailException("\n INVALID EMAIL!! \n");
         }
     }
 
     public static void checkMaxRoom(List<Office> offices) throws ManageException {
-        if (offices.size() >= MAX_OFFICE) {
+        if (offices.size() >= MAX_OFFICE_MANAGE) {
             throw new ManageException("\n EXCEEDING THE MANAGEMENT OF ROOMS!! \n");
         }
     }
@@ -38,9 +38,9 @@ public class Validate implements IConfig {
         }
     }
 
-    public static void checkName(String name) throws NameException {
+    public static void checkName(String name) throws InvalidNameException {
         if (!name.matches("^\\pL+[\\pL\\pZ\\pP]{0,}$")) {
-            throw new NameException("\n INVALID NAME!! \n");
+            throw new InvalidNameException("\n INVALID NAME!! \n");
         }
     }
 

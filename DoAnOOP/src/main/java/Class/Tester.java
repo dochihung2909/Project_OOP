@@ -8,18 +8,10 @@ public class Tester extends Employee{
     private final int ERROR_MONEY = 200000;
     private int errors;
     {
-        countId++;
-        id = String.format("T-%010d",countId);
+        id = String.format("T-%05d",NUM_EMPLOYEE);
     }
 
-    public Tester(String name, String gender, String dob, String email, List<Office> office, int errors) throws ParseException {
-        super(name, gender, dob, email, office);
-        this.errors = errors;
-    }
-
-    public Tester(String name, String gender, Date dob, String email, List<Office> office, int errors) throws ParseException {
-        super(name, gender, dob, email, office);
-        this.errors = errors;
+    public Tester() {
     }
 
     public Tester(String name, String gender, Date dob, String email, int errors) {
@@ -44,9 +36,8 @@ public class Tester extends Employee{
         return Role.TESTER.getCoefficient();
     }
 
-    @Override
-    public double getSalary() {
-        return super.getSalary() + errors * ERROR_MONEY;
+    public double getAllowance() {
+        return errors * ERROR_MONEY;
     }
 
     @Override

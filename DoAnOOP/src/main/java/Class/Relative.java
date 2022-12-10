@@ -1,12 +1,16 @@
 package Class;
 
+import javax.naming.InvalidNameException;
 import java.text.ParseException;
 import java.util.Date;
 
 public class Relative extends Person implements IConfig{
     private String relationship;
 
-    public Relative(String name, String gender, String dob, String relationship) throws ParseException {
+    public Relative() {
+    }
+
+    public Relative(String name, String gender, String dob, String relationship) throws ParseException, InvalidNameException {
         super(name, gender, dob);
         this.relationship = relationship;
     }

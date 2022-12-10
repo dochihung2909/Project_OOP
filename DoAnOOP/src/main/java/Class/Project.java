@@ -3,26 +3,35 @@ package Class;
 import java.text.ParseException;
 import java.util.Date;
 
-public class Project implements IConfig {
-    private static int countId = 0;
+public class Project implements IConfig, Comparable<Project>{
+    private static int NUM_PROJECT = 0;
     private String id;
     {
-        countId++;
-        id = String.format("P%010d", countId);
+        id = String.format("P%010d", ++NUM_PROJECT);
     }
     private String name;
-    private Date start;
-    private Date end;
+    private Date startDay;
+    private Date endDay;
     private double totalCost;
     private Employee leader;
 
-    public Project(String id, String name, String start, String end, double totalCost, Employee leader) throws ParseException {
-        this.id = id;
+    public Project(String name, String startDay, String endDay, double totalCost, Employee leader) throws ParseException {
         this.name = name;
-        this.start = f.parse(start);
-        this.end = f.parse(end);
+        this.startDay = f.parse(startDay);
+        this.endDay = f.parse(endDay);
         this.totalCost = totalCost;
         this.leader = leader;
+    }
+
+    public Project() {
+    }
+
+    public static int getNumProject() {
+        return NUM_PROJECT;
+    }
+
+    public static void setNumProject(int numProject) {
+        NUM_PROJECT = numProject;
     }
 
     public String getName() {
@@ -33,20 +42,20 @@ public class Project implements IConfig {
         this.name = name;
     }
 
-    public Date getStart() {
-        return start;
+    public Date getStartDay() {
+        return startDay;
     }
 
-    public void setStart(String start) throws ParseException {
-        this.start = f.parse(start);
+    public void setStartDay(String startDay) throws ParseException {
+        this.startDay = f.parse(startDay);
     }
 
-    public Date getEnd() {
-        return end;
+    public Date getEndDay() {
+        return endDay;
     }
 
-    public void setEnd(String end) throws ParseException {
-        this.end = f.parse(end);
+    public void setEndDay(String endDay) throws ParseException {
+        this.endDay = f.parse(endDay);
     }
 
     public double getTotalCost() {
@@ -70,20 +79,24 @@ public class Project implements IConfig {
     }
 
     public void updateInfor() throws ParseException {
-        System.out.println("Update Infor");
         System.out.print("Name: ");
         this.name = myInp.nextLine();
         System.out.print("Start date (dd/MM/yyyy): ");
-        this.start = f.parse(myInp.nextLine());
+        this.startDay = f.parse(myInp.nextLine());
         System.out.print("End date (dd/MM/yyyy): ");
-        this.end = f.parse(myInp.nextLine());
+        this.endDay = f.parse(myInp.nextLine());
         System.out.print("Total cost: ");
         this.totalCost = myInp.nextDouble();
     }
 
     public void showInfor() {
-        System.out.printf("Id: %s\nName: %s\nStart Date: %s\nEnd Date: %s\nTotal cost: %f\n",this.id,this.name,f.format(this.start),f.format(this.end),this.totalCost);
+        System.out.printf("Id: %s\nName: %s\nStart Date: %s\nEnd Date: %s\nTotal cost: %,.2f\n",this.id,this.name,f.format(this.startDay),f.format(this.endDay),this.totalCost);
         System.out.println("Leader");
         leader.showInfo();
+    }
+
+    @Override
+    public int compareTo(Project p) {
+        return (int) (this.totalCost - p.getTotalCost());
     }
 }

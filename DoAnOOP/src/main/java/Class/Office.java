@@ -1,9 +1,12 @@
 package Class;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Office implements IConfig{
+
+    private static int NUM_OFFICE;
     private String name = "Unknown";
     private List<Employee> arrEmployee = new ArrayList<>();
 
@@ -12,7 +15,20 @@ public class Office implements IConfig{
         this.arrEmployee = arrEmployee;
     }
 
+    public Office(String name) {
+        this.name = name;
+    }
+
     public Office() {
+
+    }
+
+    public static int getNumOffice() {
+        return NUM_OFFICE;
+    }
+
+    public static void setNumOffice(int numOffice) {
+        NUM_OFFICE = numOffice;
     }
 
     public String getName() {
@@ -31,24 +47,32 @@ public class Office implements IConfig{
         this.arrEmployee = arrEmployee;
     }
 
-    public void add(Employee employee) {
-        arrEmployee.add(employee);
+    public void add(Employee... employee) {
+        arrEmployee.addAll(Arrays.asList(employee));
     }
 
-    public void remove(Employee employee) {
-        arrEmployee.remove(employee);
+    public void remove(Employee... employee) {
+        arrEmployee.removeAll(Arrays.asList(employee));
     }
 
-    public void showInfor() {
-        System.out.printf("============ %s ============\nManage",this.name);
-        arrEmployee.stream().filter(a1 -> (a1 instanceof Manager)).findFirst().get().showInfo();
+    public void showOfficeInfor() {
+        System.out.printf("============ Office Name:  %s ============\n",this.name);
+        this.showEmployeeInfor();
     }
 
     public void showEmployeeInfor() {
         arrEmployee.forEach(Employee::showInfo);
     }
 
-    public void update() {
+    public boolean isHasOffice() {
+        return this.arrEmployee.stream().anyMatch(e -> e instanceof Manager);
+    }
+
+    public boolean isInOffice(Employee employee) {
+        return this.arrEmployee.stream().anyMatch(e -> e.equals(employee));
+    }
+
+    public void updateInfor() {
         System.out.print("Name Office: ");
         this.name = myInp.nextLine();
     }

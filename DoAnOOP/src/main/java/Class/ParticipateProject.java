@@ -9,6 +9,9 @@ public class ParticipateProject {
         this.employee = employee;
     }
 
+    public ParticipateProject() {
+    }
+
     public Project getProject() {
         return project;
     }

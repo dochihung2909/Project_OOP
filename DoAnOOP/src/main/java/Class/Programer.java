@@ -1,5 +1,6 @@
 package Class;
 
+import javax.naming.InvalidNameException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
@@ -8,26 +9,17 @@ public class Programer extends Employee {
     private double otSalary;
 
     {
-        countId++;
-        id = String.format("P-%010d",countId);
+        id = String.format("P-%05d",NUM_EMPLOYEE);
     }
 
-    public Programer(String name, String gender, String dob, String email, List<Office> office,double otSalary) throws ParseException {
-        super(name, gender, dob, email, office);
-        this.otSalary = otSalary;
+    public Programer() {
     }
-
-    public Programer(String name, String gender, Date dob, String email, List<Office> office, double otSalary) throws ParseException {
-        super(name, gender, dob, email, office);
-        this.otSalary = otSalary;
-    }
-
     public Programer(String name, String gender, Date dob, String email, double otSalary) {
         super(name, gender, dob, email);
         this.otSalary = otSalary;
     }
 
-    public Programer(String name, String gender, String dob, String email, double otSalary) throws ParseException {
+    public Programer(String name, String gender, String dob, String email, double otSalary) throws ParseException, InvalidNameException {
         super(name, gender, dob, email);
         this.otSalary = otSalary;
     }
@@ -44,11 +36,9 @@ public class Programer extends Employee {
         return Role.PROGRAMMER.getCoefficient();
     }
 
-    @Override
-    public double getSalary() {
-        return super.getSalary() + otSalary;
+    public double getAllowance() {
+        return otSalary;
     }
-
     @Override
     public void updateInfor() throws ParseException {
         super.updateInfor();

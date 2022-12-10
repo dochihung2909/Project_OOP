@@ -1,32 +1,25 @@
 package Class;
 
+import javax.naming.InvalidNameException;
 import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.List;
+import extension.Validate;
 
-public class Employee extends Person {
-    protected static int countId = 0;
+public abstract class Employee extends Person {
+    protected static int NUM_EMPLOYEE = 0;
     protected String id;
     {
-        countId++;
-        id = String.format("E-%010d",countId);
+        NUM_EMPLOYEE++;
     }
     private String email;
-    private List<Office> offices = new ArrayList<>();
+    private double salary;
 
+    public Employee() {
 
-    public Employee(String name, String gender, String dob, String email, List<Office> office) throws ParseException {
-        super(name, gender, dob);
-        this.email = email;
-        this.offices = office;
-    }
-
-    public Employee(String name, String gender, Date dob, String email, List<Office> office) throws ParseException {
-        super(name, gender, dob);
-        this.email = email;
-        this.offices = office;
     }
 
     public Employee(String name, String gender, Date dob, String email) {
@@ -38,7 +31,6 @@ public class Employee extends Person {
         super(name, gender, dob);
         this.email = email;
     }
-
 
     public String getId() {
         return id;
@@ -52,56 +44,66 @@ public class Employee extends Person {
         this.email = email;
     }
 
-    public List<Office> getOffice() {
-        return offices;
+    public static int getNumEmployee() {
+        return NUM_EMPLOYEE;
     }
 
-    public void setOffice(List<Office> office) {
-        this.offices = office;
-    }
-
-    public double getSalary() {
-        return BASIC_SALARY * this.getCoefficient();
+    public double getAllowance() {
+        return 0;
     }
 
     public double getCoefficient() {
         return Role.NORMAL.getCoefficient();
     }
 
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public double calcSalary() {
+        return BASIC_SALARY * this.getCoefficient() + this.getAllowance();
+    }
+
     @Override
     public void showInfo() {
         System.out.println("ID: " + this.id);
         super.showInfo();
-        System.out.printf("Email: %s\nSalary: %f\n",this.email,this.getSalary());
-        System.out.print("Offices: ");
-        if (offices != null) {
-            offices.forEach(a -> {
-                System.out.print(a.getName() + ", ");
-            });
-        } else {
-            System.out.println("Unknown");
-        }
+        System.out.println("Email: " + this.email);
+    }
 
+    public String toString() {
+        return super.toString() + String.format("Email: %s\n", this.email);
     }
 
     @Override
     public void updateInfor() throws ParseException {
-        System.out.print("Nhập tên: ");
-        super.setName(myInp.nextLine());
-        System.out.print("Giới tính: ");
-        super.setGender(myInp.nextLine());
-        System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
-        super.setDob(f.parse(myInp.nextLine()));
-        System.out.print("Email: ");
-        this.email = myInp.nextLine();
+        try {
+//            System.out.print("Nhập tên: ");
+//            super.setName(myInp.nextLine());
+//            System.out.print("Giới tính: ");
+//            super.setGender(myInp.nextLine());
+//            System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
+//            super.setDob(f.parse(myInp.nextLine()));
+            super.updateInfor();
+            System.out.print("Email: ");
+            this.email = myInp.nextLine();
+        } catch(InputMismatchException e) {
+            System.out.println(e);
+        }
     }
 
-    public boolean hasOffice(Office o) {
-        for (Office temp : offices) {
-            if (temp.equals(o)) {
-                return true;
-            }
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
-        return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Employee employee = (Employee) o;
+        return id.equals(employee.id);
     }
 }

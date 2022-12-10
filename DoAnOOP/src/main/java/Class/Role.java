@@ -4,7 +4,9 @@ public enum Role {
     NORMAL(1),
     TESTER(1.2),
     DESIGNER(1.5),
-    PROGRAMMER(2.5);
+    PROGRAMMER(2.5),
+
+    MANAGER(4);
 
     private final double coefficient;
 
