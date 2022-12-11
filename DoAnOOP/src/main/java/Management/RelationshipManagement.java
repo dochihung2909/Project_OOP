@@ -36,7 +36,7 @@ public class RelationshipManagement {
     }
 
     public List<InsurancePolicy> search(Employee employee) {
-        return this.arrRelative.stream().filter(r -> r.getEmployee().equals(employee)).collect(Collectors.toList());
+            return this.arrRelative.stream().filter(r -> r.getEmployee().equals(employee)).collect(Collectors.toList());
     }
 
     public void showInfor() {

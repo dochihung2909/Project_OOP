@@ -30,4 +30,15 @@ public class ParticipateOffice {
         employee.showInfo();
         office.showOfficeInfor();
     }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParticipateOffice that = (ParticipateOffice) o;
+        return this.office.getName().equals(that.getOffice().getName()) && this.employee.getId().equals(that.getEmployee().getId());
+    }
 }

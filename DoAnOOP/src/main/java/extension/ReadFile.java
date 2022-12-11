@@ -1,10 +1,12 @@
 package extension;
 
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
 import Class.*;
+import exception.ManageException;
 import exception.MaxException;
 
 import javax.naming.InvalidNameException;
@@ -55,14 +57,14 @@ public final class ReadFile implements IConfig {
             while (readProjectData.hasNextLine()) {
                 String[] query = readProjectData.nextLine().split(", ");
                 Project project = null;
-                String name = query[0];
-                String startDate = query[1];
-                String endDate = query[2];
-                double totalCost = Double.parseDouble(query[3]);
-                Employee leader = employeeManagement.searchById(query[4]);
+                String name = query[1];
+                String startDate = query[2];
+                String endDate = query[3];
+                double totalCost = Double.parseDouble(query[4]);
+                Employee leader = employeeManagement.searchById(query[5]);
                 project = new Project(name,startDate,endDate,totalCost,leader);
                 projectManagement.add(new ParticipateProject(project, leader));
-                for (int i = 5;i<query.length;i++) {
+                for (int i = 6;i<query.length;i++) {
                     Employee employee = employeeManagement.searchById(query[i]);
                     projectManagement.add(new ParticipateProject(project, employee));
                 }
@@ -87,17 +89,91 @@ public final class ReadFile implements IConfig {
                 String[] query = readManagerData.nextLine().split(", ");
                 Employee manager = employeeManagement.searchById(query[0]);
                 for (int i = 1;i<query.length;i++) {
-                    Office office = new Office(query[i]);
+                    Office office = officeManagement.searchOffice(query[i]);
                     ManageOffice mo = new ManageOffice(office,(Manager)manager);
+                    if (!office.isInOffice(manager)) {
+                        office.add(manager);
+                    }
+                    officeManagement.addParticipate(new ParticipateOffice(manager,office));
                     officeManagement.addManager(mo);
                 }
             }
 
-        } catch (FileNotFoundException | ParseException | InvalidNameException e) {
+        } catch (FileNotFoundException | MaxException | ManageException | ParseException | InvalidNameException e) {
             System.err.println("Read File Failure!!");
             e.printStackTrace();
-        } catch (MaxException e) {
-            throw new RuntimeException(e);
+        }
+    }
+
+    public static void writeFile() {
+        try {
+            /**
+             * Write file to OfficeData
+             */
+            PrintWriter writeOfficeData = new PrintWriter(officeData);
+            officeManagement.getArrOffice().forEach(office -> {
+                StringBuilder officeStr = new StringBuilder();
+                officeStr.append(office.getName());
+                office.getArrEmployee().forEach(employee -> officeStr.append(", " + employee.getId()));
+                writeOfficeData.println(officeStr);
+            });
+            /**
+             * Ghi danh sách nhân viên ra file EmployeeList
+             */
+            PrintWriter writeEmployeeData = new PrintWriter(employeeData);
+            employeeManagement.getArrE().forEach(employee -> {
+                StringBuilder employeeStr = new StringBuilder();
+                String gender = employee.getGender();
+                employeeStr.append(String.format("%s, %s, %s, %s, %s", employee.getId().charAt(0), employee.getName(), gender,
+                        f.format(employee.getDob()), employee.getEmail()));
+                switch (employee.getId().substring(0, 1)) {
+                    case "P" -> employeeStr.append(", " + ((Programer) employee).getOtSalary());
+                    case "D" -> employeeStr.append(", " + ((Designer) employee).getBonus());
+                    case "T" -> employeeStr.append(", " + ((Tester) employee).getErrors());
+                }
+                writeEmployeeData.println(employeeStr);
+            });
+            /**
+             * Ghi danh sách nhân thân ra file RelativeList
+             */
+            PrintWriter writeRelativeData = new PrintWriter(relativeData);
+            relativeManagement.getArrRelative().forEach(insurancePolicy -> {
+                Relative relative = insurancePolicy.getRelative();
+                String gender = relative.getGender();
+                writeRelativeData.printf("%s, %s, %s, %s, %s, %s\n", relative.getName(), gender,
+                        f.format(relative.getDob()), relative.getRelationship(),
+                        insurancePolicy.getEmployee().getId(),insurancePolicy.getIpId());
+            });
+            /**
+             * Ghi danh sách dự án ra file ProjectList
+             */
+            PrintWriter writeProjectData = new PrintWriter(projectData);
+            projectManagement.getArrProject().forEach(project -> {
+                StringBuilder projectStr = new StringBuilder();
+                projectStr.append(String.format("%s, %s, %s, %s, %f", project.getId(), project.getName(),
+                        f.format(project.getStartDay()), f.format(project.getEndDay()),
+                        project.getTotalCost()));
+                projectManagement.searchEmployee(project).forEach(employee -> projectStr.append(", " + employee.getEmployee().getId()));
+                writeProjectData.println(projectStr);
+            });
+
+            PrintWriter writeManagerData = new PrintWriter(managerData);
+            officeManagement.getArrManger().forEach(manager -> {
+                StringBuilder managerStr = new StringBuilder();
+                managerStr.append(String.format("%s", manager.getManager().getId()));
+                officeManagement.ManageOffice(manager.getManager()).forEach(m->{
+                    managerStr.append(", " + m.getOffice().getName());
+                });
+                writeManagerData.println(managerStr);
+            });
+            writeManagerData.close();
+            writeProjectData.close();
+            writeRelativeData.close();
+            writeEmployeeData.close();
+            writeOfficeData.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("\n** SUCCESSFULLY WRITE FILE **");
+            e.printStackTrace();
         }
     }
 }

@@ -1,5 +1,6 @@
 package Management;
 import Class.*;
+import exception.ManageException;
 
 import java.lang.reflect.Array;
 import java.text.ParseException;
@@ -51,12 +52,27 @@ public class OfficeManagement implements IConfig {
         arrOffice.addAll(Arrays.asList(office));
     }
 
-    public void addParticipate(ParticipateOffice... participate) {
-        arrParticipate.addAll(Arrays.asList(participate));
+    public void addParticipate(ParticipateOffice participate) {
+        if (!this.arrParticipate.stream().anyMatch(p -> p.equals(participate))) {
+            arrParticipate.add((participate));
+        }
+
     }
 
-    public void addManager(ManageOffice... manager) {
-        arrManger.addAll(Arrays.asList(manager));
+    public void addManager(ManageOffice manager) throws ManageException {
+        if (!this.arrManger.stream().anyMatch(m -> m.equals(manager))) {
+            if (numOfUnderManagement(manager.getManager()) > MAX_OFFICE_MANAGE) {
+                throw new ManageException("A Manager can only manage up to 2 office!!");
+            } else if (isManaged(manager.getOffice())) {
+                throw new ManageException("This office had manager!!");
+            } else {
+                arrManger.add((manager));
+            }
+        } else {
+            System.out.println("Manager existed!!");
+        }
+
+
     }
 
     public void removeOffice(Office... office) {
@@ -85,14 +101,20 @@ public class OfficeManagement implements IConfig {
 
     public void showInfor() {
         for (Office o : arrOffice) {
-            System.out.printf("======= %s ======\n",o.getName());
-            o.getArrEmployee().forEach(e -> {
-                if (e instanceof Manager) {
-                    System.out.printf("Manager: %s\n",e.getName());
-                }
-            });
+            System.out.printf("\n======= %s ======\n",o.getName());
+            Manager x = arrManger.stream().filter(m -> m.getOffice().equals(o)).findFirst().get().getManager();
+            System.out.printf("\nManager: %s - %s\n\n", x.getName(),x.getId());
             o.showEmployeeInfor();
         }
+    }
+
+    public void showInforManager(Manager m) {
+        m.showInfo();
+        arrManger.forEach(arrM -> {
+            if (arrM.getManager().equals(m)) {
+                System.out.printf("============ Office Name:  %s ============\n\n",arrM.getOffice().getName());
+            }
+        });
     }
 
     public List<Office> searchOffice() {
@@ -105,6 +127,17 @@ public class OfficeManagement implements IConfig {
         return arrOffice.stream().filter(a1 -> a1.getName().contains(name)).findFirst()
                 .orElseThrow(() -> new NullPointerException("Invalid Office"));
     }
+
+    public void updatePromote(Employee e) {
+        this.arrOffice.forEach(o -> {
+            o.getArrEmployee().forEach(employee -> {
+                if (employee.getName().equals(e.getName())) {
+                    employee.setId(e.getId());
+                }
+            } );
+        });
+    }
+
 
     public List<ParticipateOffice> searchParticipate() {
         System.out.print("Enter Employee Name: ");
@@ -127,23 +160,26 @@ public class OfficeManagement implements IConfig {
         return arrManger.stream().filter(a1 -> a1.getManager().getName().contains(temp)).collect(Collectors.toList());
     }
 
-    public List<ManageOffice> ManageOffice(String name) {
-        return arrManger.stream().filter(a1 -> a1.getManager().getName().contains(name)).collect(Collectors.toList());
+    public ManageOffice searchManager(Office office) {
+        return this.arrManger.stream().filter(a -> a.getOffice().equals(office)).findFirst()
+                .orElseThrow(() -> new NullPointerException("Invalid office"));
+    }
+    public List<ManageOffice> ManageOffice(Manager m) {
+        return arrManger.stream().filter(a1 -> a1.getManager().equals(m)).collect(Collectors.toList());
     }
 
-    public void setManger(Manager manager) {
-        System.out.print("Enter Office Name: ");
-        String temp = myInp.nextLine();
-        for (ManageOffice x : arrManger) {
-            if (x.getOffice().getName().contains(temp)) {
-                x.setManager(manager);
-                return;
-            }
-        }
-        System.out.println("Office Name is invalid!!!");
-        System.out.println("Please Enter again!!");
-        this.setManger(manager);
+    public void setManger(Manager manager, Office office) {
+        ManageOffice tempM = this.arrManger.stream().filter(m -> m.getOffice().equals(office)).findFirst()
+                .orElseThrow(() -> new NullPointerException("Invalid Data"));
+        tempM.setManager(manager);
     }
 
+    public int numOfUnderManagement(Manager manager) {
+        return (int) arrManger.stream().filter(m -> m.getManager().equals(manager)).count();
+    }
+
+    public boolean isManaged(Office office) {
+        return this.arrManger.stream().anyMatch(m -> m.getOffice().equals(office));
+    }
 
 }

@@ -22,6 +22,10 @@ public class InsurancePolicy implements IConfig{
     public InsurancePolicy() {
     }
 
+    public String getIpId() {
+        return ipId;
+    }
+
     public  Employee getEmployee() {
         return employee;
     }

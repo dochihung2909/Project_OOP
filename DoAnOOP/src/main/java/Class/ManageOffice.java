@@ -3,7 +3,7 @@ package Class;
 import java.util.Date;
 
 public class ManageOffice implements IConfig {
-    private Date startDay = GreCalandar.getTime();
+    private final Date startDay = GreCalandar.getTime();
     private Office office;
     private Manager manager;
 
@@ -34,5 +34,17 @@ public class ManageOffice implements IConfig {
 
     public void setManager( Manager manager) {
         this.manager = manager;
+    }
+
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ManageOffice m = (ManageOffice) o;
+        return manager.getId().equals(m.getManager().getId()) && office.getName().equals(m.getOffice().getName());
     }
 }

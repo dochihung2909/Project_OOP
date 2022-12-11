@@ -7,6 +7,9 @@ import java.util.List;
 public class Office implements IConfig{
 
     private static int NUM_OFFICE;
+    {
+        NUM_OFFICE++;
+    }
     private String name = "Unknown";
     private List<Employee> arrEmployee = new ArrayList<>();
 
@@ -60,6 +63,11 @@ public class Office implements IConfig{
         this.showEmployeeInfor();
     }
 
+    public Employee search(Employee e) {
+        return this.arrEmployee.stream().filter(a -> a.equals(e)).findFirst()
+                .orElseThrow(() -> new NullPointerException("Invalid Data"));
+    }
+
     public void showEmployeeInfor() {
         arrEmployee.forEach(Employee::showInfo);
     }
@@ -75,5 +83,16 @@ public class Office implements IConfig{
     public void updateInfor() {
         System.out.print("Name Office: ");
         this.name = myInp.nextLine();
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Office that = (Office) o;
+        return name.equals(that.name);
     }
 }

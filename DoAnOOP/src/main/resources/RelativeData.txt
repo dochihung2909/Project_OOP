@@ -1,6 +1,6 @@
-Lê Thánh Tông, male, 18/10/1970, father, P-00002
-Trần Thị Diệu, female, 15/05/1971, mother, P-00002
-Nguyễn Thiên Phước, male, 10/02/1868, brother, D-00003
-Thái Thị Huyền, female, 17/10/1870, daughter, P-00001
-Nguyễn Hà Phú Hương, female, 25/12/1869, aunt, T-00004
-Trần Quang Minh, male, 21/05/1863, cousin, M-00005
+Lê Thánh Tông, male, 18/10/1970, father, P-00002, IP0000000001
+Trần Thị Diệu, female, 15/05/1971, mother, P-00002, IP0000000002
+Nguyễn Thiên Phước, male, 10/02/1868, brother, D-00003, IP0000000003
+Thái Thị Huyền, female, 17/10/1870, daughter, P-00001, IP0000000004
+Nguyễn Hà Phú Hương, female, 25/12/1869, aunt, T-00004, IP0000000005
+Trần Quang Minh, male, 21/05/1863, cousin, M-00005, IP0000000006

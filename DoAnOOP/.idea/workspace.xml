@@ -5,28 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79349ff3-5890-4d5f-a171-5dfbd74fe679" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Designer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Designer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/IConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/IConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/InsurancePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/InsurancePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/ManageOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/ManageOffice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/Office.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Office.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/ParticipateProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/ParticipateProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Class/ParticipateOffice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/ParticipateOffice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Programer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Programer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Class/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Relative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Relative.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Class/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Class/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Management/EmployeeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/EmployeeManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Management/OfficeManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/OfficeManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Management/ProjectManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/ProjectManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/DateException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/EmailException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exception/NameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Management/RelationshipManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Management/RelationshipManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/MenuManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu/MenuManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/extension/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extension/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/extension/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extension/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/EmployeeData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EmployeeData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ManagerData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ManagerData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/OfficeData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/OfficeData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ProjectData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProjectData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RelativeData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RelativeData.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +52,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Code/University/Second Year/OOP/doanOOP/DoAnOOP",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Code/University/Second Year/OOP/doanOOP/DoAnOOP&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -91,7 +92,9 @@
       <option name="presentableId" value="Default" />
       <updated>1668220560273</updated>
       <workItem from="1668220561851" duration="830000" />
-      <workItem from="1670680435625" duration="2427000" />
+      <workItem from="1670680435625" duration="6745000" />
+      <workItem from="1670719050423" duration="10800000" />
+      <workItem from="1670737619276" duration="8794000" />
     </task>
     <servers />
   </component>
@@ -115,14 +118,10 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/extension/ReadFile.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="writeManagerData.lock" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -63,8 +63,19 @@ public class EmployeeManagement {
         this.arrE.forEach(e -> {
             e.setSalary(e.calcSalary());
             e.showInfo();
-            System.out.printf("Salary: %,.2f", e.getSalary());
+            System.out.printf("Salary: %,.2f\n\n", e.getSalary());
         });
+    }
+
+    public Employee promote(Employee e) {
+        if (!(e instanceof Manager)) {
+            Manager manager = new Manager(e);
+            manager.setId("M-" + e.getId().substring(2));
+            arrE.remove(e);
+            arrE.add(manager);
+            return manager;
+        }
+        return e;
     }
 
     public void showInfor() {

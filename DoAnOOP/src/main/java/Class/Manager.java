@@ -14,6 +14,10 @@ public class Manager extends Employee {
         super(name, gender, dob, email);
     }
 
+    public Manager(Employee e) {
+        super(e.getName(),e.getGender(),e.getDob(),e.getEmail());
+    }
+
     public Manager(String name, String gender, Date dob, String email) {
         super(name, gender, dob, email);
     }

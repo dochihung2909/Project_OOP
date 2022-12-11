@@ -7,7 +7,7 @@ public class Project implements IConfig, Comparable<Project>{
     private static int NUM_PROJECT = 0;
     private String id;
     {
-        id = String.format("P%010d", ++NUM_PROJECT);
+        id = String.format("P%05d", ++NUM_PROJECT);
     }
     private String name;
     private Date startDay;
@@ -80,17 +80,30 @@ public class Project implements IConfig, Comparable<Project>{
 
     public void updateInfor() throws ParseException {
         System.out.print("Name: ");
-        this.name = myInp.nextLine();
+        String tempName = myInp.nextLine();
+        if (!tempName.isEmpty()) {
+            this.name = tempName;
+        }
         System.out.print("Start date (dd/MM/yyyy): ");
-        this.startDay = f.parse(myInp.nextLine());
+        String startDayTemp = myInp.nextLine();
+        if (!startDayTemp.isEmpty()) {
+            this.startDay = f.parse(startDayTemp);
+        }
         System.out.print("End date (dd/MM/yyyy): ");
-        this.endDay = f.parse(myInp.nextLine());
+        String endDayTemp = myInp.nextLine();
+
+        if (!endDayTemp.isEmpty()) {
+              this.endDay = f.parse(endDayTemp);
+        }
         System.out.print("Total cost: ");
-        this.totalCost = myInp.nextDouble();
+        String tempCost = myInp.nextLine();
+        if (!tempCost.isEmpty()) {
+            this.totalCost = Double.parseDouble(tempCost);
+        }
     }
 
     public void showInfor() {
-        System.out.printf("Id: %s\nName: %s\nStart Date: %s\nEnd Date: %s\nTotal cost: %,.2f\n",this.id,this.name,f.format(this.startDay),f.format(this.endDay),this.totalCost);
+        System.out.printf("\nId: %s\nName: %s\nStart Date: %s\nEnd Date: %s\nTotal cost: %,.2f\n\n",this.id,this.name,f.format(this.startDay),f.format(this.endDay),this.totalCost);
         System.out.println("Leader");
         leader.showInfo();
     }

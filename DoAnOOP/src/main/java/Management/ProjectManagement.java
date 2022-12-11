@@ -35,19 +35,10 @@ public class ProjectManagement implements IConfig {
         this.parEmployee = parEmployee;
     }
 
-    /**
-     * Add project
-     * @param p
-     */
     public void add(Project p) {
         arrProject.add(p);
     }
 
-    /**
-     * Add employee
-     * @param e
-     * @throws MaxException
-     */
     public void add(ParticipateProject e) throws MaxException {
         if (this.getNumProjectJoined(e.getEmployee()) >= MAX_PROJECT) {
             throw new MaxException("An Employee only can participate max 3 project!!");
@@ -58,18 +49,11 @@ public class ProjectManagement implements IConfig {
         parEmployee.add(e);
     }
 
-    /**
-     * Remove project
-     * @param p
-     */
     public void remove(Project... p) {
         arrProject.removeAll(Arrays.asList(p));
     }
 
-    /**
-     * Remove employee
-     * @param e
-     */
+
     public void remove(ParticipateProject... e) {
         parEmployee.removeAll(Arrays.asList(e));
     }
@@ -86,30 +70,30 @@ public class ProjectManagement implements IConfig {
         temp.forEach(this::remove);
     }
 
-    /**
-     * Show infor every project
-     */
+
     public void showInfor() {
         this.arrProject.forEach(this::showInfor);
     }
 
-    /**
-     * Show infor a project
-     * @param p
-     */
+    public void checkRunning(Project p) {
+        if (getNumEmployeeIn(p) < MIN_EMPLOYEE) {
+            System.out.println("\n❌❌❌ This project is not running. At least 5 Employees running the project ❌❌❌");
+        } else {
+            System.out.println("\n👌👌👌 This project is running 👌👌👌");
+        }
+    }
+
     public void showInfor(Project p) {
+        checkRunning(p);
         p.showInfor();
         parEmployee.forEach(e -> {
+
             if (e.getProject().getName().equals(p.getName()) && !e.getEmployee().getName().equals(p.getLeader().getName())) {
                 e.getEmployee().showInfo();
             }
         });
     }
 
-    /**
-     * Show infor an employee
-     * @param e
-     */
     public void showInfor(Employee e) {
         e.showInfo();
         System.out.println("====== Project Joined ======");
@@ -129,7 +113,7 @@ public class ProjectManagement implements IConfig {
     }
 
     public void update(Employee e) {
-        System.out.print("Nhâp ID của dự án");
+        System.out.print("Enter project id");
         String temp = myInp.nextLine();
         arrProject.stream().filter(a1 -> a1.getId().contains(temp)).findFirst().get().setLeader(e);
     }
@@ -160,12 +144,20 @@ public class ProjectManagement implements IConfig {
         return arrProject.stream().filter(a1 -> a1.getName().contains(name)).collect(Collectors.toList());
     }
 
+    public List<ParticipateProject> searchEmployee(Project p) {
+        return parEmployee.stream().filter(e -> e.getProject().equals(p)).collect(Collectors.toList());
+    }
+
     public int getNumProjectJoined(Employee e) {
         return (int) this.parEmployee.stream().filter(par -> par.getEmployee().equals(e)).count();
     }
 
     public int getNumProjectJoined(Project p) {
         return (int ) this.parEmployee.stream().filter(par -> par.getProject().equals(p)).count();
+    }
+
+    public int getNumEmployeeIn(Project p) {
+        return (int) this.parEmployee.stream().filter(e -> e.getProject().equals(p)).count();
     }
 
     public void sort() {

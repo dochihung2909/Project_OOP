@@ -36,6 +36,10 @@ public abstract class Employee extends Person {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -72,7 +76,7 @@ public abstract class Employee extends Person {
     public void showInfo() {
         System.out.println("ID: " + this.id);
         super.showInfo();
-        System.out.println("Email: " + this.email);
+        System.out.println("Email: " + this.email + "\n");
     }
 
     public String toString() {
@@ -82,12 +86,6 @@ public abstract class Employee extends Person {
     @Override
     public void updateInfor() throws ParseException {
         try {
-//            System.out.print("Nhập tên: ");
-//            super.setName(myInp.nextLine());
-//            System.out.print("Giới tính: ");
-//            super.setGender(myInp.nextLine());
-//            System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
-//            super.setDob(f.parse(myInp.nextLine()));
             super.updateInfor();
             System.out.print("Email: ");
             this.email = myInp.nextLine();

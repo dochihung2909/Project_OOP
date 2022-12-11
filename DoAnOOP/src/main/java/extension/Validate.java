@@ -26,12 +26,6 @@ public class Validate implements IConfig {
         }
     }
 
-    public static void checkMaxRoom(List<Office> offices) throws ManageException {
-        if (offices.size() >= MAX_OFFICE_MANAGE) {
-            throw new ManageException("\n EXCEEDING THE MANAGEMENT OF ROOMS!! \n");
-        }
-    }
-
     public static void checkNullObject(Object obj) {
         if (obj == null) {
             throw new NullPointerException();

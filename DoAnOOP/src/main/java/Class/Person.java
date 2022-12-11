@@ -72,11 +72,11 @@ public abstract class Person implements IConfig{
     }
 
     public void updateInfor() throws ParseException {
-        System.out.print("Nhập tên: ");
+        System.out.print("Name: ");
         this.name = (myInp.nextLine());
-        System.out.print("Giới tính: ");
+        System.out.print("Gender: ");
         this.gender = (myInp.nextLine());
-        System.out.print("Nhập ngày sinh (dd/mm/yyyy): ");
+        System.out.print("DOB (dd/mm/yyyy): ");
         this.dob = (f.parse(myInp.nextLine()));
     }
 
